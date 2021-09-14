@@ -37,7 +37,9 @@ module.exports = {
       const category = await Category.findOne({ _id: id });
 
       res.render("admin/category/edit", { category });
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   },
   actionEdit: async (req, res) => {
     try {
@@ -58,7 +60,7 @@ module.exports = {
   actionDelete: async (req, res) => {
     try {
       const { id } = req.params;
-      const categry = await Category.findByIdAndRemove({ _id: id });
+      const category = await Category.findByIdAndRemove({ _id: id });
 
       res.redirect("/category");
     } catch (err) {
